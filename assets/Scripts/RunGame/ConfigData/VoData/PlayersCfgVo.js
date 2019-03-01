@@ -1,0 +1,21 @@
+function PlayersCfgVo()
+{
+    this.id;
+    this.name;
+    this.speed;
+    this.jump;
+    this.path;
+    this.maxYSpeed;
+    this.gravity;
+}
+PlayersCfgVo.prototype.SetValue=function(mData)
+{
+    this.id=mData.ID;
+    this.name=mData.name;
+    this.speed=mData.Speed;
+    this.jump=mData.jump;
+    this.path=mData.path;
+    this.maxYSpeed=mData.maxYSpeed;
+    this.gravity=mData.gravity;
+}
+module.exports=PlayersCfgVo;

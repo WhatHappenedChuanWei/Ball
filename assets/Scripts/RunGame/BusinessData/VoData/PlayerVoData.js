@@ -1,0 +1,21 @@
+function PlayerVoData()
+{
+    this.id;
+    this.iconPath;
+    this.speed;
+    this.jump;
+    this.name;
+    this.maxYSpeed;
+    this.gravity;
+}
+PlayerVoData.prototype.SetValue=function(mData)
+{
+    this.id=mData.ID;
+    this.iconPath=mData.path;
+    this.speed=mData.Speed;
+    this.jump=mData.jump;
+    this.name=mData.name;
+    this.maxYSpeed=mData.maxYSpeed;
+    this.gravity=mData.gravity;
+}
+module.exports=PlayerVoData;

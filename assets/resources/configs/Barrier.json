@@ -1,0 +1,14 @@
+[
+    {
+      "ID": 5001,
+      "name":"DZ",
+      "path": "DZ",
+      "attck": 4001
+    },
+    {
+      "ID": 5002,
+      "name":"barrier1",
+      "path": "barrier1",
+      "attck": 4002
+    }
+  ]

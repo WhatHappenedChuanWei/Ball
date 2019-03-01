@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1001,
+    "path": "xingxing1",
+    "score": 1,
+    "name": "星星1"
+
+  },
+  {
+    "id": 1002,
+    "path": "xingxing2",
+    "score": 2,
+    "name": "星星2"
+
+  },
+  {
+    "id": 1003,
+    "path": "xingxing3",
+    "score": 3,
+    "name": "星星3"
+  }
+]

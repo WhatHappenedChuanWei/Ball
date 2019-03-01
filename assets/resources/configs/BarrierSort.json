@@ -1,0 +1,14 @@
+[
+    {
+      "ID": 6001,
+      "Name": "直线",
+      "BarrierID": 5001,
+      "barrierPos": "0,0|100,0"
+    },
+    {
+      "ID": 6002,
+      "Name": "I型",
+      "BarrierID": 5002,
+      "barrierPos":"-400,0|100,0"
+    }
+  ]

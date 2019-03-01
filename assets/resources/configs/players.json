@@ -1,0 +1,29 @@
+[
+  {
+    "ID": 4001,
+    "name": "piqiu2",
+    "Speed": 12,
+    "jump": 20,
+    "path": "ball/piqiu2",
+    "maxYSpeed":50,
+    "gravity":50
+  },
+  {
+    "ID": 4002,
+    "name": "piqiu2",
+    "Speed": 8,
+    "jump": 12,
+    "path": "ball/piqiu2",
+    "maxYSpeed":50,
+    "gravity":50
+  },
+  {
+    "ID": 4003,
+    "name": "gangqiu",
+    "Speed": 6,
+    "jump": 10,
+    "path": "ball/gangqiu",
+    "maxYSpeed":50,
+    "gravity":50
+  }
+]
