@@ -65,7 +65,6 @@ window.const = {
         this.Screen_Width = cc.winSize.width;
         this.Screen_Height = cc.winSize.height;
         this.Adaptation_Coefficient = cc.winSize.height/1920;
-
     },
 }
 

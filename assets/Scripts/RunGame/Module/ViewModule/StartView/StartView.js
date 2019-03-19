@@ -16,10 +16,18 @@ cc.Class({
     onEnable: function () {
         this.addListener();
         window.AudioController.playerBG(window.Constant.GameClip.startBgm);
+        if(CC_WECHATGAME)
+        {
+            this.showAd();      
+        }
     },
     onDisable: function () {
         this.removeListener();
         this.displayHide();
+        if(CC_WECHATGAME)
+        {
+          this.bannerAd.hide();
+        }
     },
     initComponent: function () {
         this.startBtn = cc.find("startBtn", this.node);
@@ -35,10 +43,10 @@ cc.Class({
         this.startEvent = this.startBtn.on(cc.Node.EventType.TOUCH_END, this.onStartClick.bind(this));
 
         //微信开发者工具或者微信才能使用
-     //   this.shareEvent = this.SharetBtn.on(cc.Node.EventType.TOUCH_END, this.onShareClick.bind(this));
+        this.shareEvent = this.SharetBtn.on(cc.Node.EventType.TOUCH_END, this.onShareClick.bind(this));
         this.returnEvent=this.returnBtn.on(cc.Node.EventType.TOUCH_END,this.onReturnClick.bind(this));
         //微信开发者工具或者微信才能使用
-     //   this.rankEvent=this.rankBtn.on(cc.Node.EventType.TOUCH_END,this.onRankClick.bind(this));
+        this.rankEvent=this.rankBtn.on(cc.Node.EventType.TOUCH_END,this.onRankClick.bind(this));
         this.helpEvent=this.helpBtn.on(cc.Node.EventType.TOUCH_END,this.onHelpClick.bind(this));
         this.helpSureEvent=this.helpSure.on(cc.Node.EventType.TOUCH_END,this.onHelpSureClick.bind(this));
     },
@@ -60,7 +68,7 @@ cc.Class({
         var shareImgUrl ="";
         wx.shareAppMessage
             ({
-                title: "球球大作战",
+                title: "跑的赢我，球球就是你的啦",
                 imageUrl: shareImgUrl,
                 success: function success(res) {
                     console.log("分享成功", res);
@@ -77,21 +85,25 @@ cc.Class({
             messageType: 1,
             MAIN_MENU_NUM: "x1",
         })
+        this.bannerAd.hide();
     },
     onReturnClick()
     {
         this.displayHide();
         this.showBtn();
+        this.bannerAd.show();
     },
     onHelpClick()
     {
         this.helpBG.active=true;
         this.hideBtn();
+        this.bannerAd.hide();
     },
     onHelpSureClick()
     {
         this.helpBG.active=false;
         this.showBtn();
+        this.bannerAd.show();
     },
     displayHide()
     {
@@ -116,9 +128,9 @@ cc.Class({
     update(dt)
     {   
         
-        // if(this.isShow!=1)
-        //    return;
-        // this._updateSubDomainCanvas();
+        if(this.isShow!=1)
+           return;
+        this._updateSubDomainCanvas();
     },
     _updateSubDomainCanvas () {
         if (!this.tex) {
@@ -129,5 +141,29 @@ cc.Class({
         this.tex.initWithElement(sharedCanvas);
         this.tex.handleLoadedTexture();
         this.display.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(this.tex);
+    },
+    showAd(){
+        var winSize = wx.getSystemInfoSync();
+        console.log(winSize);
+        var bannerHeight = 50;
+        var bannerWidth = 300;
+        this.bannerAd = wx.createBannerAd({
+          adUnitId:"adunit-cb7231aaca0552b1",
+          style: {
+            left:0,
+            top: 0,
+            width: bannerWidth
+          }
+        });
+        this.bannerAd.show();
+        this.bannerAd.onResize(res => {
+            this.bannerAd.style.top = 0;
+        });
+        this.bannerAd.onError(function(err) {
+          console.log(err);
+        });
+        this.bannerAd.onLoad(function() {
+          console.log("banner 广告加载成功");
+        });
     },
 });

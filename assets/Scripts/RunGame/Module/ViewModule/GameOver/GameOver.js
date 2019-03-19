@@ -17,10 +17,19 @@ cc.Class({
          this.AddListener();
          window.AudioController.playerBG(window.Constant.GameClip.overBgm);
          this.Score.string=window.window.data.GameRunData.totalSocre.toString();
+         if(CC_WECHATGAME)
+         {
+            this.showAd();
+         }
      },
      onDisable()
      {
          this.RemoveListener();
+         if(CC_WECHATGAME)
+         {
+            this.bannerAd.hide();
+         }
+         
 
      },
      InitComponent()
@@ -75,5 +84,29 @@ cc.Class({
          }
         window.data.GameRunData.ClearData();
         this.Score.string="";
-     }
+     },
+     showAd(){
+        var winSize = wx.getSystemInfoSync();
+        console.log(winSize);
+        var bannerHeight = 50;
+        var bannerWidth = 300;
+        this.bannerAd = wx.createBannerAd({
+          adUnitId:"adunit-e762d223422955a0",
+          style: {
+            left:(winSize.windowWidth - bannerWidth) / 2,
+            top: 0,
+            width: bannerWidth
+          }
+        });
+        this.bannerAd.show();
+        this.bannerAd.onResize(res => {
+            this.bannerAd.style.top = 0;
+        });
+        this.bannerAd.onError(function(err) {
+          console.log(err);
+        });
+        this.bannerAd.onLoad(function() {
+          console.log("banner 广告加载成功");
+        });
+    },
 });

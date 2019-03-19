@@ -6,7 +6,7 @@ cc.Class({
         window.const.init();    
         window.data.init();
         window.cfg.init();
-        window.AudioController.init();
+        window.AudioController.init();  
     },
 
  

@@ -1,4 +1,6 @@
 
+
+var AdManager = require("AdManager");
 cc.Class({
     extends: cc.Component,
     properties: {
@@ -37,6 +39,32 @@ cc.Class({
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN,this.onKeyDown,this);   
         this.ballSprite=cc.find("ball",this.node);
         this.ballAni=this.ballSprite.getComponent(cc.Animation);
+        this.Ani=this.node.getComponent(cc.Animation);
+        AdManager.init();
+        if(CC_WECHATGAME)
+        {
+            AdManager.registerVideoPlayComplete(this.relive.bind(this));
+            AdManager.registerVideoPlayFail(this.gameOver.bind(this));
+            AdManager.registerOnVideoHandler(this.hideVideoAd.bind(this));
+        }
+    },
+    relive()
+    {
+        window.AudioController.playerBG(window.Constant.GameClip.gameBgm);
+        //重玩的逻辑
+        this.invincible=true;
+        this.hideRestarBG();   
+        this.collisionY=0;
+        this.isGameOver=false;
+        this.node.y=400;
+        this.m_nXSpeed= this.Speed;   
+        this.node.x=this.GameView.PlayerCamera.x;
+        this.OnPlayerDataChange(this.prePlayerType);
+        this.ballAni.play();
+    },
+    hideVideoAd()
+    {
+       this.gameOver();
     },
     onEnable()
     {
@@ -48,6 +76,7 @@ cc.Class({
         this.collisionX=0;              //1 被阻挡了 0无阻挡
         this.prePos=this.node.x;
         this.isGameOver=false;
+        this.ballSprite.color=cc.Color.WHITE;
     },
     ///由GameView调用控制  初始化角色数据默认值
     init(GameView)
@@ -195,10 +224,10 @@ cc.Class({
         if(this.GameView==null)
            return;
         if(this.cameraSpeed==0)
-           return;
+           return;     
+       this.GameView.PlayerCamera.x+=this.cameraSpeed;
         if(this.isGameOver) 
           return;  
-       this.GameView.PlayerCamera.x+=this.cameraSpeed;
        this.GetPlayerDistance();   
     },
     //更换玩家数据
@@ -237,36 +266,40 @@ cc.Class({
         this.m_nXSpeed=0;  
         this.m_nGround=1;
         this.canJumpCount=0;
-        console.log(msg);
+       // console.log(msg);
         this.isGameOver=true;     
-      //  this.showRestarBG();   //点击播放视频 调用
+        this.showRestarBG();   //点击播放视频 调用
         //this.gameOver();       //震动效果完了执行
-        this.onVibrateShort();
-        this.onCameraXYShort();
+       
     },
     showRestarBG()
     {
+        this.ballSprite.color=cc.Color.RED;
         this.GameView.RestarBG.active=true;
+        if(!this.VibrateShortReady)
+        {
+            this.onVibrateShort();
+            this.onCameraXYShort();
+        }
+        
+        
     },
     hideRestarBG()
     {
         this.GameView.RestarBG.active=false;
+        this.VibrateShortReady=false;
     },
     Restart()
     {  
-        this.invincible=true;
-        this.hideRestarBG();   
-        this.collisionY=0;
-        this.isGameOver=false;
-        this.node.y=400;
-        this.m_nXSpeed= this.Speed;   
-        this.node.x=this.GameView.PlayerCamera.x;
-       // this.node.getComponent(cc.Animation).play();
+
+       
+        AdManager.showRewardeVideo();
+        window.AudioController.pause();
     },
     gameOver()
     {
-      //  this.hideRestarBG();
-        window.EventBus.pos(window.Constant.EventTypeID.OnGameOver); 
+        this.hideRestarBG();
+        window.EventBus.pos(window.Constant.EventTypeID.OnGameOver);  
     },
     //重力效果
     gravityUp()
@@ -355,6 +388,7 @@ cc.Class({
         this.GameView.ChangeBtn.off(cc.Node.EventType.TOUCH_END,this.ChangeBtnEvent);
         this.GameView.restarBtn.off(cc.Node.EventType.TOUCH_END,this.reStarEvent);
         this.GameView.gameOverBtn.off(cc.Node.EventType.TOUCH_END,this.gameOverEvent);
+        
     },
     onDisable()
     {
@@ -365,10 +399,10 @@ cc.Class({
         this.tempInvincibleTime+=this.dt;
         if(this.tempInvincibleTime>this.invincibleTime)
         {
+            this.ballSprite.color=cc.Color.WHITE;
             this.tempInvincibleTime=0;
             this.invincible=false;
-           // this.node.getComponent(cc.Animation).stop();
-            this.node.color=cc.Color.WHITE;
+           
         }    
     },
     Absorb()
@@ -401,17 +435,19 @@ cc.Class({
        {                  
             return;
        }
+        
         wx.vibrateLong(
           {
               //震动效果执行完毕 执行
             complete()
             {
-                this.gameOver();
+               
             }
           })
     },
     onCameraXYShort()
     {
+        this.VibrateShortReady=true;  
         var x= this.GameView.PlayerCamera.x;
         var y= this.GameView.PlayerCamera.y;
         this.squashAction = cc.moveTo(0.1, 50+x, y);
@@ -420,8 +456,8 @@ cc.Class({
         this.scaleBackAction = cc.moveTo(0.1, x, y);
         var seq = cc.sequence(this.squashAction, this.stretchAction,this.squashAction2,this.scaleBackAction, this.squashAction, 
             this.scaleBackAction,cc.callFunc(function()
-            {
-                this.gameOver();                
+            {  
+                    
             }.bind(this)));     
         this.GameView.PlayerCamera.runAction(seq);
     }

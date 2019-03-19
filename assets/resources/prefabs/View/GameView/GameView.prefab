@@ -39,17 +39,21 @@
         "__id__": 83
       },
       {
-        "__id__": 91
+        "__id__": 93
       },
       {
-        "__id__": 118
+        "__id__": 120
       }
     ],
     "_active": true,
     "_level": 1,
-    "_components": [],
+    "_components": [
+      {
+        "__id__": 122
+      }
+    ],
     "_prefab": {
-      "__id__": 120
+      "__id__": 123
     },
     "_opacity": 255,
     "_color": {
@@ -2939,21 +2943,24 @@
     "_level": 2,
     "_components": [
       {
-        "__id__": 88
+        "__id__": 89
       },
       {
-        "__id__": 89
+        "__id__": 90
+      },
+      {
+        "__id__": 91
       }
     ],
     "_prefab": {
-      "__id__": 90
+      "__id__": 92
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 248,
+      "g": 236,
+      "b": 236,
       "a": 255
     },
     "_contentSize": {
@@ -3010,10 +3017,13 @@
       },
       {
         "__id__": 86
+      },
+      {
+        "__id__": 87
       }
     ],
     "_prefab": {
-      "__id__": 87
+      "__id__": 88
     },
     "_opacity": 255,
     "_color": {
@@ -3111,6 +3121,25 @@
     "_id": ""
   },
   {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 84
+    },
+    "_enabled": true,
+    "_defaultClip": {
+      "__uuid__": "eb86d5ea-f5d8-4f04-8464-5b1b4c70d050"
+    },
+    "_clips": [
+      {
+        "__uuid__": "eb86d5ea-f5d8-4f04-8464-5b1b4c70d050"
+      }
+    ],
+    "playOnLoad": false,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -3174,6 +3203,25 @@
     "_id": ""
   },
   {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 83
+    },
+    "_enabled": true,
+    "_defaultClip": {
+      "__uuid__": "2966e1c2-b895-4c36-9d9b-64b79e65e50c"
+    },
+    "_clips": [
+      {
+        "__uuid__": "eb86d5ea-f5d8-4f04-8464-5b1b4c70d050"
+      }
+    ],
+    "playOnLoad": false,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -3193,26 +3241,26 @@
     },
     "_children": [
       {
-        "__id__": 92
+        "__id__": 94
       },
       {
-        "__id__": 95
+        "__id__": 97
       },
       {
-        "__id__": 101
+        "__id__": 103
       },
       {
-        "__id__": 104
+        "__id__": 106
       },
       {
-        "__id__": 113
+        "__id__": 115
       }
     ],
     "_active": true,
     "_level": 0,
     "_components": [],
     "_prefab": {
-      "__id__": 117
+      "__id__": 119
     },
     "_opacity": 255,
     "_color": {
@@ -3265,18 +3313,18 @@
     "_name": "Jump",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 91
+      "__id__": 93
     },
     "_children": [],
     "_active": true,
     "_level": 0,
     "_components": [
       {
-        "__id__": 93
+        "__id__": 95
       }
     ],
     "_prefab": {
-      "__id__": 94
+      "__id__": 96
     },
     "_opacity": 255,
     "_color": {
@@ -3329,7 +3377,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 92
+      "__id__": 94
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -3370,22 +3418,22 @@
     "_name": "distance",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 91
+      "__id__": 93
     },
     "_children": [
       {
-        "__id__": 96
+        "__id__": 98
       }
     ],
     "_active": true,
     "_level": 0,
     "_components": [
       {
-        "__id__": 99
+        "__id__": 101
       }
     ],
     "_prefab": {
-      "__id__": 100
+      "__id__": 102
     },
     "_opacity": 255,
     "_color": {
@@ -3438,18 +3486,18 @@
     "_name": "New Sprite",
     "_objFlags": 512,
     "_parent": {
-      "__id__": 95
+      "__id__": 97
     },
     "_children": [],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 97
+        "__id__": 99
       }
     ],
     "_prefab": {
-      "__id__": 98
+      "__id__": 100
     },
     "_opacity": 255,
     "_color": {
@@ -3502,7 +3550,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 96
+      "__id__": 98
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -3543,7 +3591,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 95
+      "__id__": 97
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -3581,18 +3629,18 @@
     "_name": "ChangeBtn",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 91
+      "__id__": 93
     },
     "_children": [],
     "_active": true,
     "_level": 0,
     "_components": [
       {
-        "__id__": 102
+        "__id__": 104
       }
     ],
     "_prefab": {
-      "__id__": 103
+      "__id__": 105
     },
     "_opacity": 255,
     "_color": {
@@ -3645,7 +3693,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 101
+      "__id__": 103
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -3686,25 +3734,25 @@
     "_name": "RestarBG",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 91
+      "__id__": 93
     },
     "_children": [
       {
-        "__id__": 105
+        "__id__": 107
       },
       {
-        "__id__": 108
+        "__id__": 110
       }
     ],
     "_active": false,
     "_level": 0,
     "_components": [
       {
-        "__id__": 111
+        "__id__": 113
       }
     ],
     "_prefab": {
-      "__id__": 112
+      "__id__": 114
     },
     "_opacity": 255,
     "_color": {
@@ -3757,18 +3805,18 @@
     "_name": "reStarBtn",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 104
+      "__id__": 106
     },
     "_children": [],
     "_active": true,
     "_level": 0,
     "_components": [
       {
-        "__id__": 106
+        "__id__": 108
       }
     ],
     "_prefab": {
-      "__id__": 107
+      "__id__": 109
     },
     "_opacity": 255,
     "_color": {
@@ -3821,7 +3869,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 105
+      "__id__": 107
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -3862,18 +3910,18 @@
     "_name": "gameOverBtn",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 104
+      "__id__": 106
     },
     "_children": [],
     "_active": true,
     "_level": 0,
     "_components": [
       {
-        "__id__": 109
+        "__id__": 111
       }
     ],
     "_prefab": {
-      "__id__": 110
+      "__id__": 112
     },
     "_opacity": 255,
     "_color": {
@@ -3926,7 +3974,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 108
+      "__id__": 110
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -3967,7 +4015,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 104
+      "__id__": 106
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -4008,21 +4056,21 @@
     "_name": "Score",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 91
+      "__id__": 93
     },
     "_children": [],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 114
+        "__id__": 116
       },
       {
-        "__id__": 115
+        "__id__": 117
       }
     ],
     "_prefab": {
-      "__id__": 116
+      "__id__": 118
     },
     "_opacity": 255,
     "_color": {
@@ -4075,7 +4123,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 113
+      "__id__": 115
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -4102,7 +4150,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 113
+      "__id__": 115
     },
     "_enabled": true,
     "_id": ""
@@ -4141,7 +4189,7 @@
     "_level": 2,
     "_components": [],
     "_prefab": {
-      "__id__": 119
+      "__id__": 121
     },
     "_opacity": 255,
     "_color": {
@@ -4197,6 +4245,19 @@
     },
     "fileId": "66dyVi5PtFdaIrsz145l45",
     "sync": false
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_defaultClip": null,
+    "_clips": [],
+    "playOnLoad": false,
+    "_id": ""
   },
   {
     "__type__": "cc.PrefabInfo",

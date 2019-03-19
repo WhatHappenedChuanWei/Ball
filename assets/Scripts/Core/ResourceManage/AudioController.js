@@ -81,13 +81,9 @@ var AudioController = {
           cc.audioEngine.play(clip, false,volume);
     },
     
-
     pause:function()
     {
-        array.forEach(element => {
-            
-            element.pause();
-        });
+        this.AudioSourceList.get(window.Constant.AudioType.BGAudio).pause();
     }
 }
 module.exports=AudioController;

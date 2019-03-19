@@ -194,13 +194,13 @@ cc.Class({
     //根据要求加载玩家
     loadPlayer()
     {
-        // if(this.player==null)
-        //    return;       
+        if(this.player==null)
+           return;       
         this.playerComponent=this.player.getComponent("PlayerControll");  
-        // if(this.playerComponent==null)
-        // {
-        //    this.playerComponent=this.player.addComponent("PlayerControll");
-        // }
+        if(this.playerComponent==null)
+        {
+           this.playerComponent=this.player.addComponent("PlayerControll");
+        }
         this.playerComponent.init(this);        
     },
     ///加载星星
@@ -213,7 +213,6 @@ cc.Class({
          for(var i=0;i<len;i++)
          {
             var id=sortData.rewardID; 
-            //var dataPos=sortData.posArray.get(i).add(tempPos);
             var dataPos=sortData.posArray.get(i);
             var start=window.data.RewardItemData.GetRewardItemFromPool(swapPos,id,dataPos,this); 
             window.data.RewardItemData.GetRewardItemFromPool(swapPos1,id,dataPos,this);        
